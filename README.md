@@ -67,9 +67,10 @@ Required environment variables on Render:
 
 ```text
 SPRING_PROFILES_ACTIVE=prod
-DB_URL=your-supabase-postgres-url
+DB_URL=your-postgres-jdbc-url
 DB_USERNAME=your-db-user
 DB_PASSWORD=your-db-password
+DB_DRIVER=org.postgresql.Driver
 JWT_SECRET=a-long-random-secret
 JWT_EXPIRATION_MINUTES=120
 DDL_AUTO=update

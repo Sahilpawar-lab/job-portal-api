@@ -1,19 +1,23 @@
 services:
   - type: web
     name: job-portal-api
-    env: java
+    runtime: docker
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/job-portal-api-0.0.1-SNAPSHOT.jar
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
     envVars:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
+      - key: PORT
+        value: "10000"
       - key: DB_URL
         sync: false
       - key: DB_USERNAME
         sync: false
       - key: DB_PASSWORD
         sync: false
+      - key: DB_DRIVER
+        value: org.postgresql.Driver
       - key: JWT_SECRET
         sync: false
       - key: JWT_EXPIRATION_MINUTES
